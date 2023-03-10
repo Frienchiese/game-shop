@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 
 import ItemsList from "../components/ItemsList";
 import Navbar from "../Layout/Navbar";
-import ItemCard from "../components/Card";
+import ItemCard from "../components/ItemCard";
 
 const Home = () => {
   const [games, setGames] = useState("");
@@ -21,6 +21,15 @@ const Home = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
+  const availablePlatform = () => {
+    const platformsList = data.map((item) => {
+      item.parent_platforms;
+    });
+    return platformsList;
+  };
+  availablePlatform();
+  // console.log(pare);
 
   return (
     <div style={{ backgroundColor: "gray" }}>
@@ -39,6 +48,7 @@ const Home = () => {
             data.map((game) => {
               return (
                 <ItemCard
+                  platforms={plaformsList}
                   key={game.id}
                   image={game.background_image}
                   title={game.name}
@@ -56,7 +66,7 @@ const Home = () => {
             overscanCount: 5,
           }}
         >
-          {data &&
+          {/* {data &&
             data.map((game) => {
               return (
                 <ItemsList
@@ -65,7 +75,7 @@ const Home = () => {
                   price={game.salePrice}
                 />
               );
-            })}
+            })} */}
         </Box>
       </Box>
     </div>
